@@ -1,0 +1,50 @@
+package messageSystem;
+
+import java.util.Objects;
+
+public class File {
+    private String fileName;
+    private String fileType;
+
+    public File(String fileName, String fileType) {
+        setFileName(fileName);
+        setFileType(fileType);
+    }
+
+    public String getFileName() {
+        return fileName;
+    }
+
+    public void setFileName(String fileName) {
+        if (fileName == null || fileName.trim().isEmpty()) {
+            throw new IllegalArgumentException("File name cannot be null or empty.");
+        }
+        this.fileName = fileName;
+    }
+
+    public String getFileType() {
+        return fileType;
+    }
+
+    public void setFileType(String fileType) {
+        if (fileType == null || fileType.trim().isEmpty()) {
+            throw new IllegalArgumentException("File type cannot be null or empty.");
+        }
+        this.fileType = fileType;
+    }
+
+    @Override
+    public String toString() {
+        return "File{fileName='" + fileName + "', fileType='" + fileType + "'}";
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+        	return true;
+        if (obj == null || getClass() != obj.getClass())
+        	return false;
+        File file = (File) obj;
+        return Objects.equals(fileName, file.fileName) && Objects.equals(fileType, file.fileType);
+    }
+}
